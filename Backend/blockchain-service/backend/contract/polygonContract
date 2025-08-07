@@ -1,0 +1,70 @@
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.20;
+
+contract GreenAssetsPolygon {
+    address public admin;
+
+    constructor() {
+        admin = msg.sender;
+    }
+
+    struct TreeUpdate {
+        uint256 tid;
+        string height;
+        string imageHashId;
+        string dbh;
+        string createdDate;
+    }
+
+    struct EVUpdate {
+        uint256 eid;
+        string distance;
+    }
+
+    struct SolarUpdate {
+        uint256 suid;
+        string avgMonthlyOutput;
+        string panelEfficiency;
+        string createdDate;
+    }
+
+    mapping(uint256 => TreeUpdate[]) public treeUpdates;
+    mapping(uint256 => EVUpdate[]) public evUpdates;
+    mapping(uint256 => SolarUpdate[]) public solarUpdates;
+
+    event TreeUpdateAdded(uint256 tid, address indexed user);
+    event EVUpdateAdded(uint256 eid, address indexed user);
+    event SolarUpdateAdded(uint256 suid, address indexed user);
+
+    function addTreeUpdate(
+        uint256 tid,
+        string memory height,
+        string memory imageHashId,
+        string memory dbh,
+        string memory createdDate
+    ) external {
+        require(msg.sender == admin, "Only admin can add");
+        treeUpdates[tid].push(TreeUpdate(tid, height, imageHashId, dbh, createdDate));
+        emit TreeUpdateAdded(tid, msg.sender);
+    }
+
+    function addEVUpdate(
+        uint256 eid,
+        string memory distance
+    ) external {
+        require(msg.sender == admin, "Only admin can add");
+        evUpdates[eid].push(EVUpdate(eid, distance));
+        emit EVUpdateAdded(eid, msg.sender);
+    }
+
+    function addSolarUpdate(
+        uint256 suid,
+        string memory avgMonthlyOutput,
+        string memory panelEfficiency,
+        string memory createdDate
+    ) external {
+        require(msg.sender == admin, "Only admin can add");
+        solarUpdates[suid].push(SolarUpdate(suid, avgMonthlyOutput, panelEfficiency, createdDate));
+        emit SolarUpdateAdded(suid, msg.sender);
+    }
+}

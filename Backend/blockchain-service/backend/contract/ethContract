@@ -1,0 +1,114 @@
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.20;
+
+contract GreenAssetsETH {
+    address public admin;
+
+    constructor() {
+        admin = msg.sender;
+    }
+
+    struct TreeAsset {
+        uint256 tid;
+        string uid;
+        string treeName;
+        string botanicalName;
+        string plantingDate;
+        string location;
+        string imageHashId;
+        string createdDate;
+    }
+
+    struct EVAsset {
+        uint256 eid;
+        string uid;
+        string category;
+        string manufacturer;
+        string model;
+        string purchaseYear;
+        string energyConsumed;
+        string primaryChargingType;
+        string range;
+        string gridEmissionFactor;
+        string createdDate;
+    }
+
+    struct SolarAsset {
+        uint256 suid;
+        string uid;
+        string installedCapacity;
+        string installationDate;
+        string energyGenerationValue;
+        string inverterType;
+        string gridEmissionFactor;
+        string createdDate;
+    }
+
+    mapping(uint256 => TreeAsset) public treeAssets;
+    mapping(uint256 => EVAsset) public evAssets;
+    mapping(uint256 => SolarAsset) public solarAssets;
+
+    event TreeAssetAdded(uint256 tid, address indexed user);
+    event EVAssetAdded(uint256 eid, address indexed user);
+    event SolarAssetAdded(uint256 suid, address indexed user);
+
+    function addTreeAsset(
+        uint256 tid,
+        string memory uid,
+        string memory treeName,
+        string memory botanicalName,
+        string memory plantingDate,
+        string memory location,
+        string memory imageHashId,
+        string memory createdDate
+    ) external {
+        require(msg.sender == admin, "Only admin can add");
+        treeAssets[tid] = TreeAsset(tid, uid, treeName, botanicalName, plantingDate, location, imageHashId, createdDate);
+        emit TreeAssetAdded(tid, msg.sender);
+    }
+
+    function addEVAsset(
+        uint256 eid,
+        string memory uid,
+        string memory category,
+        string memory manufacturer,
+        string memory model,
+        string memory purchaseYear,
+        string memory energyConsumed,
+        string memory primaryChargingType,
+        string memory range,
+        string memory gridEmissionFactor,
+        string memory createdDate
+    ) external {
+        require(msg.sender == admin, "Only admin can add");
+        evAssets[eid] = EVAsset(
+            eid,
+            uid,
+            category,
+            manufacturer,
+            model,
+            purchaseYear,
+            energyConsumed,
+            primaryChargingType,
+            range,
+            gridEmissionFactor,
+            createdDate
+        );
+        emit EVAssetAdded(eid, msg.sender);
+    }
+
+    function addSolarAsset(
+        uint256 suid,
+        string memory uid,
+        string memory installedCapacity,
+        string memory installationDate,
+        string memory energyGenerationValue,
+        string memory inverterType,
+        string memory gridEmissionFactor,
+        string memory createdDate
+    ) external {
+        require(msg.sender == admin, "Only admin can add");
+        solarAssets[suid] = SolarAsset(suid, uid, installedCapacity, installationDate, energyGenerationValue, inverterType, gridEmissionFactor, createdDate);
+        emit SolarAssetAdded(suid, msg.sender);
+    }
+}

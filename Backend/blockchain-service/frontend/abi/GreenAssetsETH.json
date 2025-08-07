@@ -1,0 +1,413 @@
+[
+	{
+		"inputs": [],
+		"stateMutability": "nonpayable",
+		"type": "constructor"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "eid",
+				"type": "uint256"
+			},
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "user",
+				"type": "address"
+			}
+		],
+		"name": "EVAssetAdded",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "suid",
+				"type": "uint256"
+			},
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "user",
+				"type": "address"
+			}
+		],
+		"name": "SolarAssetAdded",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "tid",
+				"type": "uint256"
+			},
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "user",
+				"type": "address"
+			}
+		],
+		"name": "TreeAssetAdded",
+		"type": "event"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "eid",
+				"type": "uint256"
+			},
+			{
+				"internalType": "string",
+				"name": "uid",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "category",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "manufacturer",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "model",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "purchaseYear",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "energyConsumed",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "primaryChargingType",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "range",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "gridEmissionFactor",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "createdDate",
+				"type": "string"
+			}
+		],
+		"name": "addEVAsset",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "suid",
+				"type": "uint256"
+			},
+			{
+				"internalType": "string",
+				"name": "uid",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "installedCapacity",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "installationDate",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "energyGenerationValue",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "inverterType",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "gridEmissionFactor",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "createdDate",
+				"type": "string"
+			}
+		],
+		"name": "addSolarAsset",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "tid",
+				"type": "uint256"
+			},
+			{
+				"internalType": "string",
+				"name": "uid",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "treeName",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "botanicalName",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "plantingDate",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "location",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "imageHashId",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "createdDate",
+				"type": "string"
+			}
+		],
+		"name": "addTreeAsset",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "admin",
+		"outputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"name": "evAssets",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "eid",
+				"type": "uint256"
+			},
+			{
+				"internalType": "string",
+				"name": "uid",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "category",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "manufacturer",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "model",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "purchaseYear",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "energyConsumed",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "primaryChargingType",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "range",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "gridEmissionFactor",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "createdDate",
+				"type": "string"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"name": "solarAssets",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "suid",
+				"type": "uint256"
+			},
+			{
+				"internalType": "string",
+				"name": "uid",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "installedCapacity",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "installationDate",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "energyGenerationValue",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "inverterType",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "gridEmissionFactor",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "createdDate",
+				"type": "string"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"name": "treeAssets",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "tid",
+				"type": "uint256"
+			},
+			{
+				"internalType": "string",
+				"name": "uid",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "treeName",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "botanicalName",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "plantingDate",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "location",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "imageHashId",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "createdDate",
+				"type": "string"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	}
+]

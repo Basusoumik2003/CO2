@@ -1,0 +1,268 @@
+[
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "eid",
+				"type": "uint256"
+			},
+			{
+				"internalType": "string",
+				"name": "distance",
+				"type": "string"
+			}
+		],
+		"name": "addEVUpdate",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "suid",
+				"type": "uint256"
+			},
+			{
+				"internalType": "string",
+				"name": "avgMonthlyOutput",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "panelEfficiency",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "createdDate",
+				"type": "string"
+			}
+		],
+		"name": "addSolarUpdate",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "tid",
+				"type": "uint256"
+			},
+			{
+				"internalType": "string",
+				"name": "height",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "imageHashId",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "dbh",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "createdDate",
+				"type": "string"
+			}
+		],
+		"name": "addTreeUpdate",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"stateMutability": "nonpayable",
+		"type": "constructor"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "eid",
+				"type": "uint256"
+			},
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "user",
+				"type": "address"
+			}
+		],
+		"name": "EVUpdateAdded",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "suid",
+				"type": "uint256"
+			},
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "user",
+				"type": "address"
+			}
+		],
+		"name": "SolarUpdateAdded",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "tid",
+				"type": "uint256"
+			},
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "user",
+				"type": "address"
+			}
+		],
+		"name": "TreeUpdateAdded",
+		"type": "event"
+	},
+	{
+		"inputs": [],
+		"name": "admin",
+		"outputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"name": "evUpdates",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "eid",
+				"type": "uint256"
+			},
+			{
+				"internalType": "string",
+				"name": "distance",
+				"type": "string"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"name": "solarUpdates",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "suid",
+				"type": "uint256"
+			},
+			{
+				"internalType": "string",
+				"name": "avgMonthlyOutput",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "panelEfficiency",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "createdDate",
+				"type": "string"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"name": "treeUpdates",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "tid",
+				"type": "uint256"
+			},
+			{
+				"internalType": "string",
+				"name": "height",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "imageHashId",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "dbh",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "createdDate",
+				"type": "string"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	}
+]
