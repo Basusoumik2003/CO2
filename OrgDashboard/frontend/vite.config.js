@@ -8,7 +8,7 @@ export default defineConfig({
       'carbonpositive6.onrender.com',
       'www.gocarbonpositive.com',
       'localhost',
-      '127.0.0.1',
+      '0.0.0.0',
     ],
   },
 })
