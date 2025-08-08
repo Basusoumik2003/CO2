@@ -14,7 +14,7 @@ app.use("/api/address", addressRoutes);
 app.get("/", (req, res) => {
   res.send("API is running...");
 });
-
-app.listen(5001,'0.0.0.0', () => {
+const port = process.env.PORT || 5001;
+app.listen(port, () => {
   console.log("user service running at 5001");
 });

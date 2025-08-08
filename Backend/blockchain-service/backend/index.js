@@ -7,5 +7,5 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 app.use("/api", assetRoutes);
-
-app.listen(5030,'0.0.0.0', () => console.log("Backend running on port 5030"));
+const port = process.env.PORT || 5030;
+app.listen(port, () => console.log("Backend running on port 5030"));
