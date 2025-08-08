@@ -9,6 +9,6 @@ export default defineConfig({
     tailwindcss()
   ],
   server: {
-      allowedHosts: ['carbonpositive6.onrender.com'],
+      allowedHosts: 'all',
   },  
 })
