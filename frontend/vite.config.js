@@ -10,4 +10,5 @@ export default defineConfig({
   ],
   server: {
       allowedHosts: ['carbonpositive6.onrender.com'],
+  },  
 })
