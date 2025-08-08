@@ -64,18 +64,25 @@ const Navbar = ({ openLoginPopup, openSignupPopup }) => {
             <FaBookOpen className="sidebar-icon" color="#17a2b8" />
             <span>Case Studies</span>
           </NavLink>
+
+          
           <NavLink to="/careers" className="sidebar-item">
             <FaBriefcase className="sidebar-icon" color="#6f42c1" />
             <span>Careers</span>
           </NavLink>
+
+
           <NavLink to="/about" className="sidebar-item">
             <FaInfoCircle className="sidebar-icon" color="#fd7e14" />
             <span>About Us</span>
           </NavLink>
+
+
           <NavLink to="/contact" className="sidebar-item">
             <FaEnvelope className="sidebar-icon" color="#20c997" />
             <span>Contact Us</span>
           </NavLink>
+
           <div className="sidebar-item" onClick={openSignupPopup} style={{ cursor: 'pointer' }}>
             <FaUserPlus className="sidebar-icon" color="#ffc107" />
             <span>Sign Up</span>

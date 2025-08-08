@@ -24,6 +24,8 @@ import Ecoshooter from '../../Frontend/src/pages/EcoShooter/Bubble';
 import Memorygame from '../../Frontend/src/pages/MemoryGame/Memory';
 import Activities from './activities';
 import ActivityDetail from './activityDetail';
+import Careers from './pages/Careers';
+import CaseStudy from './pages/CaseStudy';
 
 const App = () => {
   const location = useLocation();
@@ -70,6 +72,8 @@ useEffect(() => {
         <Route path="/view-assets" element={<ViewAssets />} />
         <Route path="/add-asset" element={<AddAsset />} />
         <Route path="/community" element={<Community />} />
+        <Route path="/careers" element={<Careers />} />
+        <Route path="/case-studies" element={<CaseStudy />} />
         <Route path='/contact' element={<Contact />} />
         <Route path='/about' element={<About />} />
         <Route path="/games/eco-voyage" element={<EcoVoyageGame />} />
