@@ -12,6 +12,7 @@
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
+     "start": "vite preview",
     "backend:dev": "nodemon server.js",
     "start:all": "concurrently \"node server.js\" \"node admin-service/server.js\" \"node contact-service/server.js\" \"node content-service/content-service/server.js\" \"node user-service/user-service/server.js\" \"npm start --prefix blockchain-service/backend\""
   },
