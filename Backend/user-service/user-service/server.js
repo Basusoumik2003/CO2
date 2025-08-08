@@ -15,6 +15,6 @@ app.get("/", (req, res) => {
   res.send("API is running...");
 });
 
-app.listen(5001, () => {
+app.listen(5001,'0.0.0.0', () => {
   console.log("user service running at 5001");
 });
