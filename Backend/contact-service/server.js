@@ -10,6 +10,6 @@ app.use(express.json());
 app.use("/api/contact", contactRoutes);
 
 const PORT = 5015;
-app.listen(PORT, () => {
+app.listen(PORT, '0.0.0.0',() => {
   console.log(`🚀 Contact service running at http://localhost:${PORT}`);
 });
