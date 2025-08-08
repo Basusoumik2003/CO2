@@ -38,6 +38,7 @@ import Analytics from "../components/Analytics";
 import Support from "../components/Support";
 import Configuration from "../components/Configuration";
 import Security from "../components/Security";
+import GoCarbonLogo from "../../public/GoCarbonPositive_Logo.png";
 import { useMemo } from "react";
 
 const AdminDashboard = () => {
@@ -165,9 +166,11 @@ const AdminDashboard = () => {
         <div className="px-6 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-3">
-              <div className="p-2 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-xl shadow-lg">
-                <Shield className="h-8 w-8 text-white" />
-              </div>
+              <img
+                  src={GoCarbonLogo}
+                  alt="GoCarbonPositive Logo"
+                  className="h-16 w-16 object-contain"
+                />
               <div>
                 <h1 className="text-3xl font-bold text-gray-900">
                   Admin Dashboard
