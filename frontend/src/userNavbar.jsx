@@ -7,7 +7,7 @@ import WalletPopup from "./wallet";
 import { FaBars, FaLeaf, FaUserTie, FaSignOutAlt, FaInfoCircle, FaEnvelope } from "react-icons/fa";
 import { MdDashboard, MdUpload, MdEdit, MdHandshake, MdAccountBalanceWallet } from "react-icons/md";
 
-const Navbar = () => {
+const Navbar = ({ onAuthChange }) => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const navigate = useNavigate();
   const [isWalletModalOpen, setIsWalletModalOpen] = useState(false);
@@ -22,27 +22,34 @@ const Navbar = () => {
     setIsWalletModalOpen(false);
   };
 
-  const handleLogout = async () => {
-    try {
-      await fetch("/api/auth/logout", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${localStorage.getItem("token")}`,
-        },
-      });
+const handleLogout = async () => {
+  try {
+    await fetch("/api/auth/logout", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
+      },
+    });
 
-      localStorage.removeItem("token");
-      toast.success("Logged out successfully!", { autoClose: 2000, theme: "colored" });
+    localStorage.removeItem("token");
 
-      setTimeout(() => {
-        navigate("/Home");
-      }, 2200);
-    } catch (error) {
-      console.error("Logout error:", error);
-      toast.error("Logout failed!", { autoClose: 2000, theme: "colored" });
+    // Notify parent about logout
+    if (onAuthChange) {
+      onAuthChange(null);
     }
-  };
+
+    toast.success("Logged out successfully!", { autoClose: 2000, theme: "colored" });
+
+    setTimeout(() => {
+      navigate("/Home");
+    }, 2200);
+  } catch (error) {
+    console.error("Logout error:", error);
+    toast.error("Logout failed!", { autoClose: 2000, theme: "colored" });
+  }
+};
+
 
   // 🔹 Close sidebar when clicking outside
   useEffect(() => {
