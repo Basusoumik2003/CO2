@@ -13,6 +13,6 @@ app.use(express.json());
 app.use('/api/blogs', blogRoutes);
 
 const PORT = process.env.PORT || 5009;
-app.listen(PORT, '0.0.0.0',() => {
+app.listen(PORT, () => {
   console.log(`Blog Service running on port ${PORT}`);
 });
