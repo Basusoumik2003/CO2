@@ -29,7 +29,7 @@ import CreditEarnings from "../components/CreditEarnings";
 import ComplianceReports from "../components/ComplianceReports";
 import TeamManagement from "../components/TeamManagement";
 import QuickActions from "../components/QuickActions";
-import "../../../frontend/src/components/global.css"
+import "../../../frontend/src/components/global1.css"
 
 // SVG Icons
 const BellIcon = () => <FiBell size={20} style={{ color: "#f59e0b" }} />;
@@ -211,9 +211,13 @@ const OrgDashboard = () => {
         transition={{ duration: 0.3 }}
       >
         <div className="flex items-center space-x-3">
-          {/* <div className="logo-container">
-            <ActivityIcon className="w-6 h-6 text-white" />
-          </div> */}
+          <div className="logo-container">
+            <img
+              src="/GoCarbonPositive_LOGO.png"
+              alt="Go Carbon Positive Logo"
+              className="w-12 h-12 object-contain"
+            />
+          </div>
           <div>
             <h1 className="text-2xl font-bold text-gray-dark">
               Organization Dashboard

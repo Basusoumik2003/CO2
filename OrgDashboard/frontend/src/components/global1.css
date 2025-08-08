@@ -305,13 +305,9 @@ body {
 
 
 .logo-container {
-  padding: var(--spacing-2);
-  background: linear-gradient(135deg, var(--color-primary), var(--color-info));
-  border-radius: var(--border-radius-sm);
-  color: white;
-  font-weight: 600;
-  font-size: var(--font-size-lg);
-}
+    padding: 0.1px;
+    color: white;
+  }
 
 /* Enhanced Card Styles with Distinguished Shadows */
 .card {
