@@ -28,8 +28,6 @@ import CaseStudy from './pages/CaseStudy';
 
 const App = () => {
   const location = useLocation();
-  
-
 
   // Initial auth state based on token in localStorage
   const [isAuthenticated, setIsAuthenticated] = useState(!!localStorage.getItem("token"));
@@ -44,7 +42,7 @@ const App = () => {
     return () => window.removeEventListener('storage', handleStorageChange);
   }, []);
 
-  // Function to update auth state immediately after login/signup
+  // Update auth state immediately after login/signup
   const handleAuthChange = (token) => {
     if (token) {
       localStorage.setItem("token", token);
@@ -55,24 +53,28 @@ const App = () => {
     }
   };
 
+  // This useEffect forces re-check of auth on every route change, ensuring navbar updates immediately
+  useEffect(() => {
+    setIsAuthenticated(!!localStorage.getItem("token"));
+  }, [location.pathname]);
+
   // Decide when to hide Navbar
-const shouldHideNavbar = () => {
-  const hideNavbarRoutes = ['/', '/userDashboard', '/orgDashboard'];
-  
-  // Always show navbar on these pages even if authenticated
-  const alwaysShowNavbarRoutes = ['/blog', '/engage', '/community', '/careers', '/case-studies', '/contact', '/about'];
+  const shouldHideNavbar = () => {
+    const hideNavbarRoutes = ['/', '/userDashboard', '/orgDashboard'];
 
-  if (!isAuthenticated) return true;  // Hide navbar if not logged in
+    // Always show navbar on these pages even if authenticated
+    const alwaysShowNavbarRoutes = ['/blog', '/engage', '/community', '/careers', '/case-studies', '/contact', '/about'];
 
-  if (hideNavbarRoutes.includes(location.pathname)) return true; // hide on these
+    if (!isAuthenticated) return true;  // Hide navbar if not logged in
 
-  if (location.pathname.startsWith('/games')) return true;  // hide on /games*
+    if (hideNavbarRoutes.includes(location.pathname)) return true; // hide on these
 
-  if (alwaysShowNavbarRoutes.includes(location.pathname)) return false; // explicitly show navbar
+    if (location.pathname.startsWith('/games')) return true;  // hide on /games*
 
-  return false; // default: show navbar
-};
+    if (alwaysShowNavbarRoutes.includes(location.pathname)) return false; // explicitly show navbar
 
+    return false; // default: show navbar
+  };
 
   return (
     <>
@@ -101,7 +103,6 @@ const shouldHideNavbar = () => {
         <Route path="/games/memory" element={<Memorygame />} />
         <Route path="/activities" element={<Activities />} />
         <Route path="/activity/:activityKey" element={<ActivityDetail />} />
-    
       </Routes>
     </>
   );
