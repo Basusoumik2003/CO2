@@ -58,7 +58,32 @@ const Navbar = ({ openLoginPopup, openSignupPopup }) => {
       </nav>
 
       {sidebarOpen && (
+
         <div ref={sidebarRef} className="sidebar-dropdown">
+          {isAuthenticated && (
+            <div
+              className="sidebar-item"
+              style={{ cursor: 'pointer' }}
+              onClick={() => navigate('/userDashboard')}
+            >
+              <FaUserTie className="sidebar-icon" color="#2e7d32" />
+              <span>Dashboard</span>
+            </div>
+          )}
+
+          {!isAuthenticated && (
+            <div
+              className="sidebar-item"
+              style={{ cursor: 'pointer' }}
+              onClick={() => {
+                toast.info("Please log in or sign up first");
+                openLoginPopup();
+              }}
+            >
+              <FaUserTie className="sidebar-icon" color="#2e7d32" />
+              <span>Dashboard</span>
+            </div>
+          )}
           <NavLink to="/community" className="sidebar-item">
             <FaUsers className="sidebar-icon" color="#28a745" />
             <span>Community</span>
@@ -95,30 +120,7 @@ const Navbar = ({ openLoginPopup, openSignupPopup }) => {
             <span>Sign Up</span>
           </div>
 
-          {isAuthenticated && (
-            <div
-              className="sidebar-item"
-              style={{ cursor: 'pointer' }}
-              onClick={() => navigate('/userDashboard')}
-            >
-              <FaUserTie className="sidebar-icon" color="#2e7d32" />
-              <span>Dashboard</span>
-            </div>
-          )}
-
-          {!isAuthenticated && (
-            <div
-              className="sidebar-item"
-              style={{ cursor: 'pointer' }}
-              onClick={() => {
-                toast.info("Please log in or sign up first");
-                openLoginPopup();
-              }}
-            >
-              <FaUserTie className="sidebar-icon" color="#2e7d32" />
-              <span>Dashboard</span>
-            </div>
-          )}
+          
 
         </div>
       )}
