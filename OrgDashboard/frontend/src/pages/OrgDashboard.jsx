@@ -30,6 +30,7 @@ import ComplianceReports from "../components/ComplianceReports";
 import TeamManagement from "../components/TeamManagement";
 import QuickActions from "../components/QuickActions";
 import "../../../frontend/src/components/global1.css"
+import "../../../frontend/src/components/TeamManagement.css"
 
 // SVG Icons
 const BellIcon = () => <FiBell size={20} style={{ color: "#f59e0b" }} />;
