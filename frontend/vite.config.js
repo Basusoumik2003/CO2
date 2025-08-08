@@ -8,4 +8,6 @@ export default defineConfig({
   plugins: [react(),
     tailwindcss()
   ],
+  server: {
+      allowedHosts: ['carbonpositive6.onrender.com'],
 })
