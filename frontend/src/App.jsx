@@ -1,9 +1,8 @@
-import React from 'react';
-import { useState, useEffect } from 'react';
-
+import React, { useState, useEffect } from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+
 import Home from './Home';
 import UserDashboard from './userDashboard';
 import OrgDashboard from '../../OrgDashboard/frontend/src/pages/OrgDashboard';
@@ -29,35 +28,58 @@ import CaseStudy from './pages/CaseStudy';
 
 const App = () => {
   const location = useLocation();
-  const token = localStorage.getItem("token");
 
-  
-const [isAuthenticated, setIsAuthenticated] = useState(!!localStorage.getItem("token"));
+  // Initial auth state based on token in localStorage
+  const [isAuthenticated, setIsAuthenticated] = useState(!!localStorage.getItem("token"));
 
-useEffect(() => {
-  const handleStorageChange = () => {
-    setIsAuthenticated(!!localStorage.getItem("token"));
+  // Listen for storage events (e.g. login/logout in other tabs)
+  useEffect(() => {
+    const handleStorageChange = () => {
+      setIsAuthenticated(!!localStorage.getItem("token"));
+    };
+
+    window.addEventListener('storage', handleStorageChange);
+    return () => window.removeEventListener('storage', handleStorageChange);
+  }, []);
+
+  // Update auth state immediately after login/signup
+  const handleAuthChange = (token) => {
+    if (token) {
+      localStorage.setItem("token", token);
+      setIsAuthenticated(true);
+    } else {
+      localStorage.removeItem("token");
+      setIsAuthenticated(false);
+    }
   };
 
-  window.addEventListener('storage', handleStorageChange);
-  return () => window.removeEventListener('storage', handleStorageChange);
-}, []);
+  // This useEffect forces re-check of auth on every route change, ensuring navbar updates immediately
+  useEffect(() => {
+    setIsAuthenticated(!!localStorage.getItem("token"));
+  }, [location.pathname]);
 
-  // Helper to decide when to hide Navbar
- const shouldHideNavbar = () => {
-  const hideNavbarRoutes = ['/', '/userDashboard', '/orgDashboard'];
-  return (
-    hideNavbarRoutes.includes(location.pathname) ||
-    location.pathname.startsWith('/games') ||
-    !isAuthenticated
-  );
-};
+  // Decide when to hide Navbar
+  const shouldHideNavbar = () => {
+    const hideNavbarRoutes = ['/', '/userDashboard', '/orgDashboard'];
 
+    // Always show navbar on these pages even if authenticated
+    const alwaysShowNavbarRoutes = ['/blog', '/engage', '/community', '/careers', '/case-studies', '/contact', '/about'];
+
+    if (!isAuthenticated) return true;  // Hide navbar if not logged in
+
+    if (hideNavbarRoutes.includes(location.pathname)) return true; // hide on these
+
+    if (location.pathname.startsWith('/games')) return true;  // hide on /games*
+
+    if (alwaysShowNavbarRoutes.includes(location.pathname)) return false; // explicitly show navbar
+
+    return false; // default: show navbar
+  };
 
   return (
     <>
       <ToastContainer />
-      {!shouldHideNavbar() && <UserNavbar />}
+      {!shouldHideNavbar() && <UserNavbar onAuthChange={handleAuthChange} />}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/home" element={<Home />} />
@@ -65,7 +87,7 @@ useEffect(() => {
         <Route path="/userDashboard" element={<UserDashboard />} />
         <Route path="/orgDashboard" element={<OrgDashboard />} />
         <Route path="/upload" element={<Upload />} />
-       <Route path="/blog" element={<Blog isAuthenticated={isAuthenticated} />} />
+        <Route path="/blog" element={<Blog isAuthenticated={isAuthenticated} />} />
         <Route path="/engage" element={<Engage />} />
         <Route path="/wallet" element={<Wallet />} />
         <Route path="/profile" element={<Profile />} />
@@ -79,8 +101,8 @@ useEffect(() => {
         <Route path="/games/eco-voyage" element={<EcoVoyageGame />} />
         <Route path="/games/eco-shooter" element={<Ecoshooter />} />
         <Route path="/games/memory" element={<Memorygame />} />
-        <Route path="/activities" element={<Activities/>}/>
-        <Route path="/activity/:activityKey" element={<ActivityDetail/>}/>
+        <Route path="/activities" element={<Activities />} />
+        <Route path="/activity/:activityKey" element={<ActivityDetail />} />
       </Routes>
     </>
   );

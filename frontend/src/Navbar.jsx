@@ -1,14 +1,21 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { NavLink } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+
 import {
   FaLeaf, FaBars, FaUsers, FaBlog, FaBriefcase,
   FaBookOpen, FaInfoCircle, FaEnvelope, FaUserPlus, FaUserTie
 } from 'react-icons/fa';
 import './Navbar.css';
+import { toast } from 'react-toastify';
+
 
 const Navbar = ({ openLoginPopup, openSignupPopup }) => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const sidebarRef = useRef(null);
+  const navigate = useNavigate();
+  const isAuthenticated = !!localStorage.getItem("token");
+
 
   const handleSidebarToggle = () => {
     setSidebarOpen(!sidebarOpen);
@@ -35,11 +42,11 @@ const Navbar = ({ openLoginPopup, openSignupPopup }) => {
   return (
     <>
       <nav className="home-navbar">
-       <div className="navbar-left">
-  <FaBars className="menu-icon" onClick={handleSidebarToggle} style={{ fontSize: '1.8rem' }} />
-  <img src="/logo.jpg" alt="Carbon Credit Logo" className="logo-icon" />
-  <span className="logo-text">Carbon Credit</span>
-</div>
+        <div className="navbar-left">
+          <FaBars className="menu-icon" onClick={handleSidebarToggle} style={{ fontSize: '1.8rem' }} />
+          <img src="/logo.jpg" alt="Carbon Credit Logo" className="logo-icon" />
+          <span className="logo-text">Carbon Credit</span>
+        </div>
 
         <div className="navbar-right">
           <FaUserTie
@@ -51,7 +58,32 @@ const Navbar = ({ openLoginPopup, openSignupPopup }) => {
       </nav>
 
       {sidebarOpen && (
+
         <div ref={sidebarRef} className="sidebar-dropdown">
+          {isAuthenticated && (
+            <div
+              className="sidebar-item"
+              style={{ cursor: 'pointer' }}
+              onClick={() => navigate('/userDashboard')}
+            >
+              <FaUserTie className="sidebar-icon" color="#2e7d32" />
+              <span>Dashboard</span>
+            </div>
+          )}
+
+          {!isAuthenticated && (
+            <div
+              className="sidebar-item"
+              style={{ cursor: 'pointer' }}
+              onClick={() => {
+                toast.info("Please log in or sign up first");
+                openLoginPopup();
+              }}
+            >
+              <FaUserTie className="sidebar-icon" color="#2e7d32" />
+              <span>Dashboard</span>
+            </div>
+          )}
           <NavLink to="/community" className="sidebar-item">
             <FaUsers className="sidebar-icon" color="#28a745" />
             <span>Community</span>
@@ -65,7 +97,7 @@ const Navbar = ({ openLoginPopup, openSignupPopup }) => {
             <span>Case Studies</span>
           </NavLink>
 
-          
+
           <NavLink to="/careers" className="sidebar-item">
             <FaBriefcase className="sidebar-icon" color="#6f42c1" />
             <span>Careers</span>
@@ -87,6 +119,9 @@ const Navbar = ({ openLoginPopup, openSignupPopup }) => {
             <FaUserPlus className="sidebar-icon" color="#ffc107" />
             <span>Sign Up</span>
           </div>
+
+          
+
         </div>
       )}
     </>
