@@ -18,7 +18,7 @@ import UserNavbar from './userNavbar';
 import ViewAssets from "./ViewAssets";
 import Contact from './contact';
 import AddAsset from '../../OrgDashboard/frontend/src/components/AddAsset';
-import EcoVoyageGame from '../../Frontend/src/pages/EcoVoyage/EcoVoyageGame';
+import EcoVoyageGame from '../pages/EcoVoyage/EcoVoyageGame';
 import Ecoshooter from '../../Frontend/src/pages/EcoShooter/Bubble';
 import Memorygame from '../../Frontend/src/pages/MemoryGame/Memory';
 import Activities from './activities';
