@@ -29,7 +29,7 @@ import CreditEarnings from "../components/CreditEarnings";
 import ComplianceReports from "../components/ComplianceReports";
 import TeamManagement from "../components/TeamManagement";
 import QuickActions from "../components/QuickActions";
-import "../../../frontend/src/components/global1.css"
+import "../components/global1.css";
 import "../../../frontend/src/components/TeamManagement.css"
 
 // SVG Icons
