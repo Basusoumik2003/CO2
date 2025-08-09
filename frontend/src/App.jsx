@@ -24,6 +24,7 @@ import Memorygame from './pages/MemoryGame/Memory';
 import Activities from './activities';
 import ActivityDetail from './activityDetail';
 import Careers from './pages/Careers';
+
 import CaseStudy from './pages/CaseStudy';
 
 const App = () => {
