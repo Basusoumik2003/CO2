@@ -24,7 +24,7 @@ export default function Contact() {
     const payload = { u_id, firstName, lastName, email, company, message };
 
     try {
-      const res = await fetch("http://localhost:5015/api/contact", {
+      const res = await fetch("https://contact-service-sls2.onrender.com/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
