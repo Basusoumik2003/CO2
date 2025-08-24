@@ -16,7 +16,7 @@ const Blog = ({ isAuthenticated }) => {
   const [blogs, setBlogs] = useState([]);
   const fileInputRef = useRef();
   const [commentInputs, setCommentInputs] = useState({});
-  const [modalBlog,setModalBlog]=useState(null);
+  const [modalBlog, setModalBlog] = useState(null);
 
   useEffect(() => {
     api.get('/')
@@ -99,7 +99,7 @@ const Blog = ({ isAuthenticated }) => {
     }
   };
 
-  
+
   return (
 
     <div className="blog-main-wrapper">
