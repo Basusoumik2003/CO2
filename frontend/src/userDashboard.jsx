@@ -33,17 +33,17 @@ const UserDashboard = () => {
         console.log("Fetched userId:", userId);
 
         // Fetch EVs
-        const evRes = await axios.get(`http://localhost:8080/api/evmasterdata/${userId}`);
+        const evRes = await axios.get(`https://add-asset-service.onrender.com/api/evmasterdata/${userId}`);
         console.log("EV API response:", evRes.data);
         setEvList(evRes.data.data);
 
         // Fetch Solar
-        const solarRes = await axios.get(`http://localhost:8080/api/solarpanel/${userId}`);
+        const solarRes = await axios.get(`https://add-asset-service.onrender.com/api/solarpanel/${userId}`);
         console.log("Solar API response:", solarRes.data);
         setSolarList(solarRes.data.data);
 
         // ✅ Fetch Trees
-        const treeRes = await axios.get(`http://localhost:8080/api/tree/${userId}`);
+        const treeRes = await axios.get(`https://add-asset-service.onrender.com/api/tree/${userId}`);
         console.log("Tree API response:", treeRes.data);
         setTreeList(treeRes.data.data);
 
@@ -101,7 +101,7 @@ const UserDashboard = () => {
         }
 
         // Fetch EV data
-        const evRes = await fetch(`http://localhost:8080/api/evmasterdata/${userId}`);
+        const evRes = await fetch(`https://add-asset-service.onrender.com/api/evmasterdata/${userId}`);
         const evData = await evRes.json();
         const evActivities = (evData.status === "success" && evData.data.length > 0)
           ? evData.data.map(item => ({
@@ -116,7 +116,7 @@ const UserDashboard = () => {
           : [];
 
         // Fetch Solar data
-        const solarRes = await fetch(`http://localhost:8080/api/solarpanel/${userId}`);
+        const solarRes = await fetch(`https://add-asset-service.onrender.com/api/solarpanel/${userId}`);
         const solarData = await solarRes.json();
         const solarActivities = (solarData.status === "success" && solarData.data.length > 0)
           ? solarData.data.map(item => ({
@@ -130,7 +130,7 @@ const UserDashboard = () => {
           : [];
 
         // ✅ Fetch Tree data
-        const treeRes = await fetch(`http://localhost:8080/api/tree/${userId}`);
+        const treeRes = await fetch(`https://add-asset-service.onrender.com/api/tree/${userId}`);
         const treeData = await treeRes.json();
         const treeActivities = (treeData.status === "success" && treeData.data.length > 0)
           ? treeData.data.map(item => ({
@@ -176,7 +176,7 @@ const UserDashboard = () => {
     if (!userId) return;
 
     const initCredit = async () => {
-      await fetch("http://localhost:8080/api/credits/init", {
+      await fetch("https://add-asset-service.onrender.com/api/credits/init", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ uid: userId }),
@@ -184,7 +184,7 @@ const UserDashboard = () => {
     };
 
     const fetchCredit = async () => {
-      const res = await fetch(`http://localhost:8080/api/credits/${userId}`);
+      const res = await fetch(`https://add-asset-service.onrender.com/api/credits/${userId}`);
       const data = await res.json();
       setCredit(data.token_value || 0);
     };
@@ -214,7 +214,7 @@ const UserDashboard = () => {
     try {
       const uid = localStorage.getItem("userId"); // 👈 Replace this with actual UID
 
-      const res = await fetch("http://localhost:8080/api/credits/update", {
+      const res = await fetch("https://add-asset-service.onrender.com/api/credits/update", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ uid, token_value: totalCredits }),
@@ -224,7 +224,7 @@ const UserDashboard = () => {
       console.log("Credits updated on backend:", data);
 
       // Backend se latest value fetch karo wapas
-      const res2 = await fetch(`http://localhost:8080/api/credits/${uid}`);
+      const res2 = await fetch(`https://add-asset-service.onrender.com/api/credits/${uid}`);
       const newData = await res2.json();
       setBackendCredits(newData.token_value || 0);
     } catch (error) {

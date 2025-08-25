@@ -119,7 +119,7 @@ const PopupForms = ({
     }
 
     try {
-        const response = await fetch('http://localhost:8080/api/solarpanel', {
+        const response = await fetch('https://add-asset-service.onrender.com/api/solarpanel', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(payload),
@@ -172,7 +172,7 @@ const PopupForms = ({
         };
 
         try {
-            const response = await fetch('http://localhost:8080/api/evmasterdata', {
+            const response = await fetch('https://add-asset-service.onrender.com/api/evmasterdata', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(payload)
@@ -235,7 +235,7 @@ const handleTreeSubmit = async (e) => {
                 formData.append('images', blob);
             });
 
-            const imageRes = await fetch('http://localhost:8080/api/image/upload', {
+            const imageRes = await fetch('https://add-asset-service.onrender.com/api/image/upload', {
                 method: 'POST',
                 body: formData,
             });
@@ -263,7 +263,7 @@ const handleTreeSubmit = async (e) => {
         };
 
         // ✅ Tree save request
-        const response = await fetch('http://localhost:8080/api/tree', {
+        const response = await fetch('https://add-asset-service.onrender.com/api/tree', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(payload)

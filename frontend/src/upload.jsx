@@ -26,7 +26,7 @@ const Upload = () => {
   // };
   const handleSaveEV = async (formData) => {
   try {
-    const res = await axios.post("http://localhost:8080/api/evmasterdata", formData);
+    const res = await axios.post("https://add-asset-service.onrender.com/api/evmasterdata", formData);
 
     setEvList((prev) => [...prev, res.data.data]);
     setEvCount(res.data.evCount);

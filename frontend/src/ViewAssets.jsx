@@ -35,7 +35,7 @@ const SustainableAssets = () => {
   useEffect(() => {
     const fetchAssetStatuses = async () => {
       try {
-        const res = await fetch(`http://localhost:8080/api/assets/user/${userId}/status`);
+        const res = await fetch(`https://add-asset-service.onrender.com/api/assets/user/${userId}/status`);
         const data = await res.json();
         setAssetStatuses(data);
       } catch (error) {
@@ -48,13 +48,13 @@ const SustainableAssets = () => {
 
   const fetchData = async () => {
     try {
-      const evRes = await axios.get(`http://localhost:8080/api/evmasterdata/${userId}`);
+      const evRes = await axios.get(`https://add-asset-service.onrender.com/api/evmasterdata/${userId}`);
       setEvList(evRes.data.data);
 
-      const solarRes = await axios.get(`http://localhost:8080/api/solarpanel/${userId}`);
+      const solarRes = await axios.get(`https://add-asset-service.onrender.com/api/solarpanel/${userId}`);
       setSolarList(solarRes.data.data);
 
-      const treeRes = await axios.get(`http://localhost:8080/api/tree/${userId}`);
+      const treeRes = await axios.get(`https://add-asset-service.onrender.com/api/tree/${userId}`);
       setTreeList(treeRes.data.data);
     } catch (error) {
       console.error("Error fetching assets:", error);
@@ -92,7 +92,7 @@ const SustainableAssets = () => {
 
   const handleViewDetails = async (evId) => {
     try {
-     const res = await axios.get(`http://localhost:8080/api/by-ev/${evId}`);
+     const res = await axios.get(`https://add-asset-service.onrender.com/api/by-ev/${evId}`);
       console.log("Fetched transactions:", res.data); 
       const transactions = Array.isArray(res.data.data) ? res.data.data : [res.data.data];
       setEvTransactionList(res.data);
@@ -134,7 +134,7 @@ const handleSaveSolar = async () => {
     }
 
     await axios.put(
-      `http://localhost:8080/api/solarpanel/${formData.suid}`,
+      `https://add-asset-service.onrender.com/api/solarpanel/${formData.suid}`,
       updatedFields
     );
 
@@ -202,7 +202,7 @@ const handleSaveSolar = async () => {
       }
 
       await axios.put(
-        `http://localhost:8080/api/evmasterdata/${formData.ev_id}`,
+        `https://add-asset-service.onrender.com/api/evmasterdata/${formData.ev_id}`,
         updatedFields
       );
 
@@ -365,7 +365,7 @@ const handleSaveSolar = async () => {
                   ev_id: modalContent.asset.ev_id,
                   active_distance: formData.active_distance,
                 };
-                await axios.post("http://localhost:8080/api/evtransaction", payload);
+                await axios.post("https://add-asset-service.onrender.com/api/evtransaction", payload);
                 alert("Transaction added successfully!");
                 closeModal();
               } catch (error) {

@@ -10,7 +10,7 @@ const userId = localStorage.getItem("userId");
 useEffect(() => {
   const fetchCredit = async () => {
     try {
-      const res = await fetch(`http://localhost:8080/api/credits/${userId}`);
+      const res = await fetch(`https://add-asset-service.onrender.com/api/credits/${userId}`);
       const data = await res.json();
 
       // Make sure it's a number
