@@ -98,10 +98,10 @@ const Footer = () => {
                 <i className="fas fa-envelope"></i> support@carboncredit.com
               </li>
               <li className="text-black">
-                <i className="fas fa-phone"></i> +91 9876543210
+                <i className="fas fa-phone"></i> +91 8018246346
               </li>
               <li className="text-black">
-                <i className="fas fa-map-marker-alt"></i> Mumbai, India
+                <i className="fas fa-map-marker-alt"></i> STPI, Bhubaneswar, India
               </li>
             </ul>
           </div>

@@ -23,6 +23,7 @@
 }
 
 .footer-top p {
+  color: black;
   max-width: 600px;
   margin: 0 auto 20px;
   font-size: 14px;
@@ -172,4 +173,12 @@
   .newsletter-form input {
     width: 100%;
   }
+}
+
+.footer-links-section li.text-black {
+  color: #000 !important;
+}
+
+.footer-links-section li.text-black i {
+  color: #2e7d32; /* keep the icons green */
 }

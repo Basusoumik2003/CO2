@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './contact.css';
 import { useNavigate } from "react-router-dom";
+import Navbar from './Navbar';
 
 export default function Contact() {
   const [firstName, setFirstName] = useState("");
@@ -44,6 +45,7 @@ export default function Contact() {
 
   return (
     <main>
+      <Navbar />
       <div className="contact">
         <div className="contact-big-container">
           <div className="contactHeader">
@@ -58,18 +60,32 @@ export default function Contact() {
               <p className="infoDescription">
                 We're here to help you with your carbon offset journey. Reach out to us through any of the following channels.
               </p>
+              
               <div className="contactMap">
                 <iframe
                   title="Our Location"
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.019019234263!2d-122.4194151846817!3d37.7749297797597!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8085809c2f8e4b0b%3A0x7d0b7e0e0e0e0e0e!2sSan+Francisco%2C+CA!5e0!3m2!1sen!2sus!4v1688578578578!5m2!1sen!2sus"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3741.7767760199026!2d85.81654867394697!3d20.309504781165828!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a19091c6159d5c7%3A0x8ea36dfd61cf5143!2sEmerging%20Tech%20%2C%20Bhubaneswar(EmTek%20-%20STPI%20Industry%204.0%20CoE)!5e0!3m2!1sen!2sin!4v1756137239455!5m2!1sen!2sin"
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}
-                  allowFullScreen=""
+                  allowFullScreen
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
                 ></iframe>
               </div>
+
+              <div className="contactDetails">
+                <p>
+                  <strong>www.gocarbonpositive.com</strong> is operated by Debadarsan Consulting Private Limited.
+                </p>
+                <p>
+                  <strong>Address:</strong> EmTek STPI, Fortune Towers, Maitri Vihar Road, Bhubaneshwar, Odisha 751023.
+                </p>
+                <p>
+                  <strong>Phone:</strong> +91 8018246346
+                </p>
+              </div>
+
             </div>
             <div className="contactForm">
               <h3 className="formTitle">Send us a Message</h3>
