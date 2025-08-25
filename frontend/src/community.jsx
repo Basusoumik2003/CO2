@@ -2,7 +2,7 @@ import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 //import Navbar from "../components/Navbar";
 import Footer from "./components/Footer.jsx"
-import "./Community.css"
+import "./community.css"
 import { FaBell, FaUserCircle, FaSearch } from "react-icons/fa"
 
 const suggestionsData = [
