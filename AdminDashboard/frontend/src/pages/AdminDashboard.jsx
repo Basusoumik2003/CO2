@@ -48,7 +48,7 @@ const AdminDashboard = () => {
   const [pendingCount, setPendingCount] = useState(0);
 
  useEffect(() => {
-  fetch("http://localhost:5000/api/assets/pending-count")  // <-- add port 5000
+  fetch("https://admin-service-5g36.onrender.com/api/assets/pending-count")  // <-- add port 5000
     .then((res) => res.json())
     .then((data) => {
       console.log("Pending count from backend:", data.count);

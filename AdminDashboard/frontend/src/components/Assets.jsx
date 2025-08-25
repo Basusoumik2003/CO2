@@ -709,7 +709,7 @@ const Assets = () => {
 
   const fetchAssets = async () => {
     try {
-      const res = await fetch("http://localhost:5000/api/assets");
+      const res = await fetch("https://admin-service-5g36.onrender.com/api/assets");
       const json = await res.json();
       if (json.status === "success") {
         setAssets(json.data); // ✅ Sab assets ko set karo (pending, approved, rejected)
@@ -723,7 +723,7 @@ const Assets = () => {
 
 const updateStatus = async (assetId, newStatus) => {
   try {
-    const res = await fetch(`http://localhost:5000/api/assets/${assetId}/status`, {
+    const res = await fetch(`https://admin-service-5g36.onrender.com/api/assets/${assetId}/status`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
