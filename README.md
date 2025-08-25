@@ -63,5 +63,5 @@ graph TD
     A --> E[Blockchain Integration - Node + Ethers.js + IPFS]
     A --> F[Blog Service - Node + MongoDB]
     A --> G[Notification Service - Node + Bull Queue]
-    A --> H[]
+    A --> H[Analytics Service - Python + Pandas/NumPy]
     A --> I[Org Dashboard - Node/Postgres + APIs]
