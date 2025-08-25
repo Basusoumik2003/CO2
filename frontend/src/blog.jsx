@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import './Blog.css';
+import './blog.css';
 import { FaPlus, FaRegHeart, FaHeart } from 'react-icons/fa';
 import api from "../src/api/api";
 
