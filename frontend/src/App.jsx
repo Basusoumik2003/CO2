@@ -86,14 +86,14 @@ const App = () => {
         <Route path="/home" element={<Home />} />
         <Route path="/game" element={<Games />} />
         <Route path="/userDashboard" element={<UserDashboard />} />
-        <Route path="/orgDashboard" element={<OrgDashboard />} />
+{/*         <Route path="/orgDashboard" element={<OrgDashboard />} /> */}
         <Route path="/upload" element={<Upload />} />
         <Route path="/blog" element={<Blog isAuthenticated={isAuthenticated} />} />
         <Route path="/engage" element={<Engage />} />
         <Route path="/wallet" element={<Wallet />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/view-assets" element={<ViewAssets />} />
-        <Route path="/add-asset" element={<AddAsset />} />
+{/*         <Route path="/add-asset" element={<AddAsset />} /> */}
         <Route path="/community" element={<Community />} />
         <Route path="/careers" element={<Careers />} />
         <Route path="/case-studies" element={<CaseStudy />} />
