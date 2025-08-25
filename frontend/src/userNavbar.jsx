@@ -75,7 +75,7 @@ const handleLogout = async () => {
       <div className="user-left-section">
         <FaBars className="user-menu-icon" onClick={() => setSidebarOpen(!sidebarOpen)} />
         <div className="user-logo">
-  <img src="/logo.jpg" alt="CarbonCredit Logo" className="user-logo-icon" />
+  <img src="../public/GoCarbonPositive_LOGO.svg" alt="CarbonCredit Logo" className="user-logo-icon" />
   <span className="user-logo-text">CarbonCredit</span>
 </div>
 

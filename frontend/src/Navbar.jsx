@@ -44,7 +44,7 @@ const Navbar = ({ openLoginPopup, openSignupPopup }) => {
       <nav className="home-navbar">
         <div className="navbar-left">
           <FaBars className="menu-icon" onClick={handleSidebarToggle} style={{ fontSize: '1.8rem' }} />
-          <img src="/logo.jpg" alt="Carbon Credit Logo" className="logo-icon" />
+          <img src="../public/GoCarbonPositive_LOGO.svg" alt="Carbon Credit Logo" className="logo-icon" />
           <span className="logo-text">Carbon Credit</span>
         </div>
 
