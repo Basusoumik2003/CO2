@@ -5,7 +5,7 @@ import "react-toastify/dist/ReactToastify.css";
 
 import Home from './Home';
 import UserDashboard from './userDashboard';
-//import OrgDashboard from '../../OrgDashboard/frontend/src/pages/OrgDashboard';
+import OrgDashboard from '../../OrgDashboard/frontend/src/pages/OrgDashboard'
 import Upload from './upload';
 import Blog from './blog';
 import Engage from './engage';
@@ -17,7 +17,7 @@ import Community from './community';
 import UserNavbar from './userNavbar';
 import ViewAssets from "./ViewAssets";
 import Contact from './contact';
-//import AddAsset from '../../OrgDashboard/frontend/src/components/AddAsset';
+import AddAsset from '../../OrgDashboard/frontend/src/components/AddAsset';
 import EcoVoyageGame from './pages/EcoVoyage/EcoVoyageGame';
 import Ecoshooter from './pages/EcoShooter/Bubble';
 import Memorygame from './pages/MemoryGame/Memory';
