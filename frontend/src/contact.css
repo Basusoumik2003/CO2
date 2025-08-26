@@ -263,3 +263,19 @@ body, .contact, .container {
     padding: 1.5rem 0.7rem;
   }
 }
+
+
+.contactDetails {
+  background-color: #f0fff4; /* same light green as your form background */
+  border-radius: 12px;
+  padding: 16px;
+  margin-top: 16px;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: #2f4f4f; /* similar to your text color */
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.contactDetails strong {
+  color: #1c6e47; /* same green accent as buttons/headers */
+}

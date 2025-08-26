@@ -11,7 +11,7 @@ body {
   padding: 20px;
   user-select: none;
   min-height: 100vh;
-  background-image: url("/public/game/ecovoyage/background.png");
+  background-image: url("/game/ecovoyage/background.png");
   background-size: cover;
   background-position: center;
   position: relative;

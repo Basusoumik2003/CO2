@@ -5,7 +5,7 @@ import "react-toastify/dist/ReactToastify.css";
 
 import Home from './Home';
 import UserDashboard from './userDashboard';
-import OrgDashboard from '../../OrgDashboard/frontend/src/pages/OrgDashboard';
+//import OrgDashboard from '../../OrgDashboard/frontend/src/pages/OrgDashboard'
 import Upload from './upload';
 import Blog from './blog';
 import Engage from './engage';
@@ -17,7 +17,7 @@ import Community from './community';
 import UserNavbar from './userNavbar';
 import ViewAssets from "./ViewAssets";
 import Contact from './contact';
-import AddAsset from '../../OrgDashboard/frontend/src/components/AddAsset';
+//import AddAsset from '../../OrgDashboard/frontend/src/components/AddAsset';
 import EcoVoyageGame from './pages/EcoVoyage/EcoVoyageGame';
 import Ecoshooter from './pages/EcoShooter/Bubble';
 import Memorygame from './pages/MemoryGame/Memory';
@@ -30,13 +30,13 @@ import CaseStudy from './pages/CaseStudy';
 const App = () => {
   const location = useLocation();
 
-const RedirectToOrg = () => {
-  useEffect(() => {
-    window.location.href = "https://orgdashboard.onrender.com";
-  }, []);
+  const RedirectToOrg = () => {
+    useEffect(() => {
+      window.location.href = "https://orgdashboard.onrender.com";
+    }, []);
 
-  return <p>Redirecting to Organization Dashboard...</p>;
-};
+    return <p>Redirecting to Organization Dashboard...</p>;
+  };
 
 
 
@@ -96,7 +96,7 @@ const RedirectToOrg = () => {
         <Route path="/home" element={<Home />} />
         <Route path="/game" element={<Games />} />
         <Route path="/userDashboard" element={<UserDashboard />} />
-        {/* <Route path="/orgDashboard" element={<OrgDashboard />} /> */}
+  {/* <Route path="/orgDashboard" element={<OrgDashboard />} /> */ }
         <Route
   path="/orgDashboard"
   element={
@@ -110,7 +110,7 @@ const RedirectToOrg = () => {
         <Route path="/wallet" element={<Wallet />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/view-assets" element={<ViewAssets />} />
-        <Route path="/add-asset" element={<AddAsset />} />
+  {/*         <Route path="/add-asset" element={<AddAsset />} /> */ }
         <Route path="/community" element={<Community />} />
         <Route path="/careers" element={<Careers />} />
         <Route path="/case-studies" element={<CaseStudy />} />
@@ -121,7 +121,7 @@ const RedirectToOrg = () => {
         <Route path="/games/memory" element={<Memorygame />} />
         <Route path="/activities" element={<Activities />} />
         <Route path="/activity/:activityKey" element={<ActivityDetail />} />
-      </Routes>
+      </Routes >
     </>
   );
 };

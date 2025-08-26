@@ -1,6 +1,8 @@
 import React from 'react';
 import './about.css';
 //import Navbar from '../components/Navbar';
+import Footer from "./components/Footer";
+import Navbar from './Navbar';
 
 const features = [
   {
@@ -54,7 +56,7 @@ const stats = [
 export default function About({ isAuthenticated, user, onLogout }) {
   return (
     <>
-      
+      <Navbar />
       <div className="about-hero-section-v2">
         <div className="about-hero-content-v2">
           <div className="about-hero-left-v2">
@@ -135,6 +137,7 @@ export default function About({ isAuthenticated, user, onLogout }) {
           </div>
         </div>
       </div>
+      <Footer />
     </>
   );
 }

@@ -1,7 +1,9 @@
 import React, { useState, useRef, useEffect } from 'react';
-import './Blog.css';
+import './blog.css';
 import { FaPlus, FaRegHeart, FaHeart } from 'react-icons/fa';
 import api from "../src/api/api";
+import Footer from "./components/Footer";
+import Navbar from './Navbar';
 
 const categories = ['All', 'Carbon Credit', 'Sustainable Development', 'Others'];
 
@@ -101,8 +103,11 @@ const Blog = ({ isAuthenticated }) => {
 
 
   return (
+    
+      
 
     <div className="blog-main-wrapper">
+      <Navbar />
 
       {/* Hero Section */}
 
@@ -447,8 +452,10 @@ const Blog = ({ isAuthenticated }) => {
           </div>
 
         </div>
+        
 
       )}
+      <Footer />
 
     </div>
 

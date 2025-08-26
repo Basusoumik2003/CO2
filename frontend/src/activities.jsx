@@ -1,5 +1,5 @@
 import React from 'react';
-import './Activities.css';
+import './activities.css';
 import { useNavigate } from 'react-router-dom';
 
 const activities = [
