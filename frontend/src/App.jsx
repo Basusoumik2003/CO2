@@ -30,6 +30,16 @@ import CaseStudy from './pages/CaseStudy';
 const App = () => {
   const location = useLocation();
 
+const RedirectToOrg = () => {
+  useEffect(() => {
+    window.location.href = "https://orgdashboard.onrender.com";
+  }, []);
+
+  return <p>Redirecting to Organization Dashboard...</p>;
+};
+
+
+
   // Initial auth state based on token in localStorage
   const [isAuthenticated, setIsAuthenticated] = useState(!!localStorage.getItem("token"));
 
@@ -86,7 +96,14 @@ const App = () => {
         <Route path="/home" element={<Home />} />
         <Route path="/game" element={<Games />} />
         <Route path="/userDashboard" element={<UserDashboard />} />
-        <Route path="/orgDashboard" element={<OrgDashboard />} />
+        {/* <Route path="/orgDashboard" element={<OrgDashboard />} /> */}
+        <Route
+  path="/orgDashboard"
+  element={
+    <RedirectToOrg />
+  }
+/>
+
         <Route path="/upload" element={<Upload />} />
         <Route path="/blog" element={<Blog isAuthenticated={isAuthenticated} />} />
         <Route path="/engage" element={<Engage />} />
