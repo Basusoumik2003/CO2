@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
-import './contact.css';
+import React, { useState } from "react";
+import "./contact.css";
 import { useNavigate } from "react-router-dom";
-import Navbar from './Navbar';
+// import Navbar from './Navbar';
 
 export default function Contact() {
   const [firstName, setFirstName] = useState("");
@@ -25,11 +25,14 @@ export default function Contact() {
     const payload = { u_id, firstName, lastName, email, company, message };
 
     try {
-      const res = await fetch("https://contact-service-sls2.onrender.com/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
-      });
+      const res = await fetch(
+        "https://contact-service-sls2.onrender.com/api/contact",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload),
+        }
+      );
 
       const data = await res.json();
       if (data.success) {
@@ -45,22 +48,24 @@ export default function Contact() {
 
   return (
     <main>
-      <Navbar />
+      {/* <Navbar /> */}
       <div className="contact">
         <div className="contact-big-container">
           <div className="contactHeader">
             <h1 className="contactTitle">Contact Us</h1>
             <p className="contactSubtitle">
-              Get in touch with our team for support, partnerships, or general inquiries
+              Get in touch with our team for support, partnerships, or general
+              inquiries
             </p>
           </div>
           <div className="contactGrid">
             <div className="contactInfo">
               <h3 className="infoTitle">Get in Touch</h3>
               <p className="infoDescription">
-                We're here to help you with your carbon offset journey. Reach out to us through any of the following channels.
+                We're here to help you with your carbon offset journey. Reach
+                out to us through any of the following channels.
               </p>
-              
+
               <div className="contactMap">
                 <iframe
                   title="Our Location"
@@ -76,16 +81,18 @@ export default function Contact() {
 
               <div className="contactDetails">
                 <p>
-                  <strong>www.gocarbonpositive.com</strong> is operated by Debadarsan Consulting Private Limited.
+                  <strong>www.gocarbonpositive.com</strong> is operated by
+                  Debadarsan Consulting Private Limited.
                 </p>
                 <p>
-                  <strong>Address:</strong> EmTek STPI, Fortune Towers, Maitri Vihar Road, Bhubaneshwar, Odisha 751023.
+                  <strong>Address:</strong> EmTek STPI, Fortune Towers, Maitri
+                  Vihar Road, Bhubaneshwar, Odisha 751023.
                 </p>
                 <p>
                   <strong>Phone:</strong> +91 8018246346
                 </p>
-              </div>
-
+              
+              </div>
             </div>
             <div className="contactForm">
               <h3 className="formTitle">Send us a Message</h3>

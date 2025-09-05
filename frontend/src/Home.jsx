@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import Navbar from './Navbar';
+// import Navbar from './Navbar';
 import Login from './Login';
 import Signup from './Signup';
 import './Home.css';
@@ -72,13 +72,13 @@ const Home = ({ isAuthenticated, user }) => {
 
   return (
     <>
-      <Navbar
+      {/* <Navbar
   isAuthenticated={isAuthenticated}
   user={user}
   showAuth={showLogin || showSignup}
   openLoginPopup={() => setShowLogin(true)}
   openSignupPopup={() => setShowSignup(true)}
-/>
+/> */}
 
 
       <div className="hero-section">

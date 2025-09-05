@@ -3,7 +3,7 @@ import './blog.css';
 import { FaPlus, FaRegHeart, FaHeart } from 'react-icons/fa';
 import api from "../src/api/api";
 import Footer from "./components/Footer";
-import Navbar from './Navbar';
+// import Navbar from './Navbar';
 
 const categories = ['All', 'Carbon Credit', 'Sustainable Development', 'Others'];
 
@@ -107,7 +107,7 @@ const Blog = ({ isAuthenticated }) => {
       
 
     <div className="blog-main-wrapper">
-      <Navbar />
+      {/* <Navbar /> */}
 
       {/* Hero Section */}
 
